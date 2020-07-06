@@ -19,21 +19,123 @@
       href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css"
       type="text/css"
     />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css"
     />
+
     <title>Gis v.1</title>
   </head>
 
   <body>
-    <div id="map">
-      <pre id="coordinates" class="coordinates"></pre>
-
-      <div id="screenshot-win">
-        <img class="screenshot" alt="screenshot" />
+    <div id="menu">
+      <div class="topnav" id="standart">
+        <div class="dropdown" class="active">
+          <button class="dropbtn">
+            File
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Add Data</a>
+            <a href="#">Add Basemap</a>
+            <a href="#">Export map</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">
+            Edit
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Undo</a>
+            <a href="#">Redo</a>
+            <a href="#">Cut</a>
+            <a href="#">Copy</a>
+            <a href="#">Paste</a>
+            <a href="#">Delete</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">
+            Geoprocessing
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Buffer</a>
+            <a href="#">Clip</a>
+            <a href="#">Intersect</a>
+            <a href="#">Union</a>
+            <a href="#">Merge</a>
+            <a href="#">Dissolve</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">
+            Help
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Help</a>
+            <a href="#">About</a>
+          </div>
+        </div>
+        <a
+          href="javascript:void(0);"
+          style="font-size: 15px;"
+          class="icon"
+          onclick="myFunction()"
+          >&#9776;</a
+        >
+      </div>
+      <div>
+        <div
+          class="topnav"
+          id="draw-editor"
+          style="background-color: #f5f5f5; display: inline;"
+        >
+          <button
+            title="LineString tool (l)"
+            id="draw_line_string"
+            class="menu-btn"
+          >
+            <i class="mdi mdi-vector-line"></i></button
+          ><button title="Polygon tool (p)" id="draw_polygon" class="menu-btn">
+            <i class="mdi mdi-vector-square"></i>
+          </button>
+          <button title="Marker tool (m)" id="draw_point" class="menu-btn">
+            <i class="mdi mdi-map-marker"></i>
+          </button>
+          <button title="Delete" id="trash" class="menu-btn">
+            <i class="mdi mdi-trash-can"></i></button
+          ><button title="Combine" id="combineFeatures" class="menu-btn">
+            <i class="mdi mdi-vector-combine"></i>
+          </button>
+          <button title="Uncombine" id="uncombineFeatures" class="menu-btn">
+            <i class="mdi mdi-vector-combine"></i>
+          </button>
+        </div>
+        <div
+          class="topnav"
+          id="tools-editor"
+          style="background-color: #f5f5f5; display: inline;"
+        >
+          <button title="Screenshot" id="toggleScreenWin" class="menu-btn">
+            <i class="mdi mdi-monitor-screenshot"></i>
+          </button>
+        </div>
       </div>
     </div>
+
+    <div id="map">
+      <pre id="coordinates" class="coordinates"></pre>
+      <div id="result">
+        <details>
+          <summary>ScreenView</summary>
+          <img class="screenshot" alt="screenshot" />
+        </details>
+      </div>
+    </div>
+
     <script src="js/sources.js"></script>
     <script src="js/layers.js"></script>
     <script src="js/style.js"></script>

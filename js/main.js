@@ -11,17 +11,48 @@ const scale = new mapboxgl.ScaleControl({
   maxWidth: 100,
   unit: "metric",
 });
-map.addControl(scale);
-map.addControl(screenControl);
 
-var draw = new MapboxDraw({
+const draw = new MapboxDraw({
   displayControlsDefault: true,
   userProperties: true,
 });
 
-map.on("style.load", async (e) => {
-  map.addControl(draw);
+map.addControl(scale);
+//map.addControl(screenControl);
+map.addControl(draw, "top-left");
 
+document
+  .querySelectorAll(".mapboxgl-ctrl-top-right, .mapboxgl-ctrl-top-left")
+  .forEach((el) => (el.style.display = "none"));
+
+/*************************** */
+function myFunction() {
+  var x = document.getElementById("standart");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+/*************************** */
+
+const drawEditor = document.querySelector("#draw-editor");
+drawEditor.addEventListener("click", (e) => {
+  const key = e.target.id ? e.target.id : e.target.parentNode.id;
+  if (key.includes("draw")) {
+    draw.changeMode(key);
+  } else {
+    draw[key]();
+  }
+});
+
+const toolsEditor = document.querySelector("#tools-editor");
+toolsEditor.addEventListener("click", (e) => {
+  const key = e.target.id ? e.target.id : e.target.parentNode.id;
+  window[key]();
+});
+
+map.on("style.load", async (e) => {
   map.getSource("point").setData(featurePoint);
   map.getSource("line").setData(featureLine);
   map.getSource("fill").setData(featurePolygon);
@@ -29,13 +60,7 @@ map.on("style.load", async (e) => {
 });
 
 function toggleScreenWin() {
-  const elem = document.getElementById("screenshot-win");
-  if (elem.style.display === "block") {
-    elem.style.display = "none";
-  } else {
-    elem.style.display = "block";
-    takeScreenshot(map);
-  }
+  takeScreenshot(map);
 }
 
 // get screen map without preserveDrawingBuffer: true in style

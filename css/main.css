@@ -1,76 +1,7 @@
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-}
-#menu {
-  background: #fff;
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  right: 10px;
-  border-radius: 3px;
-  width: 120px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  font-family: "Open Sans", sans-serif;
-}
-#menu a {
-  font-size: 13px;
-  color: #404040;
-  display: block;
-  margin: 0;
-  padding: 0;
-  padding: 10px;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-  text-align: center;
-}
-#menu a:last-child {
-  border: none;
-}
-
-#menu a:hover {
-  background-color: #f8f8f8;
-  color: #404040;
-}
-
-#menu a.active {
-  background-color: #3887be;
-  color: #ffffff;
-}
-
-#menu a.active:hover {
-  background: #3074a4;
-}
-#features {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300px;
-  bottom: 0;
-  z-index: 9999;
-  background: rgba(0, 100, 200, 0.45);
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  overflow: auto;
-}
-.calculation-box {
-  height: 300px;
-  width: 150px;
-  position: absolute;
-  bottom: 60px;
-  left: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 15px;
-  text-align: center;
-}
-
-p {
-  font-family: "Open Sans";
-  margin: 0;
-  font-size: 13px;
-}
+@import url(map/map.css);
+@import url(menu/menu.css);
+@import url(buttons/draw-btn.css);
+@import url(buttons/accordion.css);
 
 .coordinates {
   background: rgba(0, 0, 0, 0.5);
@@ -84,21 +15,6 @@ p {
   line-height: 18px;
   border-radius: 3px;
   display: none;
-}
-
-#screen-btn {
-  position: absolute;
-  top: 20.9%;
-  left: 97.9%;
-  width: 30px;
-  height: 30px;
-  z-index: 999;
-  border-top: 1px solid #ddd;
-  outline: none;
-  border: 0;
-  box-sizing: border-box;
-  border-radius: 3px;
-  cursor: pointer;
 }
 
 #screenshot-win {
