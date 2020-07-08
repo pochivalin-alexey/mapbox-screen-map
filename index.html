@@ -39,7 +39,7 @@
             File
           </button>
           <div class="dropdown-content">
-            <a href="#">Add Data</a>
+            <a href="#" id="add_data">Add Data</a>
             <a href="#">Add Basemap</a>
             <a href="#">Export map</a>
           </div>
@@ -128,6 +128,16 @@
 
     <div id="map">
       <pre id="coordinates" class="coordinates"></pre>
+      <dialog id="window">
+        <h3>Add data</h3>
+        <input type="file" id="input" accept=".geojson" multiple />
+        <br />
+        <br />
+        <div style="float: right;">
+          <button id="exit">Cancel</button>
+          <button id="ok">Add</button>
+        </div>
+      </dialog>
       <div id="result">
         <details>
           <summary>ScreenView</summary>

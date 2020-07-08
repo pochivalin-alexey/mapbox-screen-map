@@ -36,6 +36,18 @@ function myFunction() {
 }
 /*************************** */
 
+const topMenu = document.querySelector(".topnav");
+const dialog = document.getElementById("window");
+topMenu.addEventListener("click", (e) => {
+  console.log("topnav", e.target.id, e.target.parentNode.id);
+  if (e.target.id === "add_data") {
+    dialog.show();
+    document.getElementById("exit").onclick = () => {
+      dialog.close();
+    };
+  }
+});
+
 const drawEditor = document.querySelector("#draw-editor");
 drawEditor.addEventListener("click", (e) => {
   const key = e.target.id ? e.target.id : e.target.parentNode.id;
